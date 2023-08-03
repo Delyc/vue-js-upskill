@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="item in users" :key="item.name">
-      <Child2 :data="item "/>
+      <Child2 :data="item "  :handleClick="alertUserName"/>
     </li>
   </ul>
 
@@ -81,6 +81,9 @@ export default {
     };
   },
   methods: {
+    alertUserName(name){
+      alert(name)
+    },
     getDetails() {
       console.log("function called", this.userEmail, this.userPassword);
     },
