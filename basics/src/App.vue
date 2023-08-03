@@ -2,6 +2,13 @@
   <h1>{{ bound }}</h1>
 
   <input type="text" v-model="bound"/>
+  <input type="text" placeholder="enter email" v-model="userEmail"/>
+  <br />
+  <br />
+  <input type="password" placeholder="enter password" v-model="userPassword" />
+  <br />
+  <br />
+<button type="button" v-on:click="getDetails">Get data</button>
   <h1>This is the app page {{email}} {{msg}}  {{getName()}}  {{getAge(5)}}</h1>
   <TestComp msg="working "/>
 
@@ -23,6 +30,8 @@ export default {
   },
   data() {
     return {
+      userEmail: null,
+      userPassword: null,
       bound: "hello",
       count: 0,
       email: 'delyce@gmail.com',
@@ -33,6 +42,9 @@ export default {
     }
   },
   methods : {
+    getDetails(){
+      console.log("function called", this.userEmail, this.userPassword)
+    },
     handleClick(){
       this.count = this.count + 1
     },
