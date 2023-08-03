@@ -4,6 +4,9 @@
 
   <h1>{{getData().class}}</h1>
   <h1>{{getData().email}}</h1>
+
+  <button v-on:click="handleClick()">Click me</button>
+  <h2>{{ count}} </h2>
 </template>
 
 <script>
@@ -16,6 +19,7 @@ export default {
   },
   data() {
     return {
+      count: 0,
       email: 'delyce@gmail.com',
       msg: "tetdsajfjdfn",
       getName(){
@@ -24,6 +28,9 @@ export default {
     }
   },
   methods : {
+    handleClick(){
+      this.count = this.count + 1
+    },
     getAge(age){
       return age
     },
