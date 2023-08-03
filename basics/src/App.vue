@@ -1,4 +1,7 @@
 <template>
+  <h1>{{ bound }}</h1>
+
+  <input type="text" v-model="bound"/>
   <h1>This is the app page {{email}} {{msg}}  {{getName()}}  {{getAge(5)}}</h1>
   <TestComp msg="working "/>
 
@@ -7,6 +10,7 @@
 
   <button v-on:click="handleClick()">Click me</button>
   <h2>{{ count}} </h2>
+
 </template>
 
 <script>
@@ -19,6 +23,7 @@ export default {
   },
   data() {
     return {
+      bound: "hello",
       count: 0,
       email: 'delyce@gmail.com',
       msg: "tetdsajfjdfn",
