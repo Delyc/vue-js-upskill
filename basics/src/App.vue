@@ -1,9 +1,20 @@
 <template>
+<input placeholder="email" v-model="email"/>
+<button v-on:click="handleSubmit()">submit</button>
+<input ref="hello"/>
+<button v-on:click="setData">set</button>
+  <div>
+    <h1>Props from child</h1>
+    <Child3 />
+  </div>
   <ul>
     <li v-for="item in users" :key="item.name">
       <Child2 :data="item "  :handleClick="alertUserName"/>
     </li>
   </ul>
+
+
+  <div></div>
 
   <!-- <h1>Props</h1> -->
 
@@ -38,15 +49,18 @@
 import TestComp from "./components/TestComp.vue";
 import Child from "./components/Child.vue";
 import Child2 from "./components/Child2.vue";
+import Child3 from "./components/Child3.vue";
 export default {
   name: "App",
   components: {
     TestComp,
     Child,
     Child2,
+    Child3,
   },
   data() {
     return {
+      email : null,
       users: [
         {
           name: "one",
@@ -81,6 +95,15 @@ export default {
     };
   },
   methods: {
+handleSubmit(){
+  console.log("dsr email", this.email)
+},
+    setData() {
+   this.$refs.hello.value="hello test"
+    },
+    getName(userAge) {
+      this.age = userAge
+    },
     alertUserName(name){
       alert(name)
     },
